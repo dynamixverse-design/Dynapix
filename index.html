@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynapix — AI Prompt & Image Creator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg-dark-start: #0a0118;
+        --bg-dark-end: #120a22;
+        --brand-purple: #8B5CF6;
+        --brand-cyan: #22D3EE;
+        --glass-bg: rgba(22, 16, 40, 0.5);
+        --glass-border: rgba(255, 255, 255, 0.1);
+        --text-primary: #F3F4F6;
+        --text-secondary: #9CA3AF;
+        --text-interactive: var(--brand-cyan);
+      }
+      .dark {
+        color-scheme: dark;
+      }
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .animated-gradient {
+        background: linear-gradient(135deg, var(--bg-dark-start), var(--brand-purple), var(--brand-cyan), var(--bg-dark-end));
+        background-size: 400% 400%;
+        animation: gradient-animation 25s ease infinite;
+      }
+      @keyframes gradient-animation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      /* Custom scrollbar for a sleeker look */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgba(0,0,0,0.1);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--brand-purple);
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--brand-cyan);
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Poppins', 'sans-serif'],
+            },
+            colors: {
+              'brand-purple': 'var(--brand-purple)',
+              'brand-cyan': 'var(--brand-cyan)',
+            },
+            boxShadow: {
+              'glow-purple': '0 0 20px 5px rgba(139, 92, 246, 0.4)',
+              'glow-cyan': '0 0 20px 5px rgba(34, 211, 238, 0.4)',
+              'inner-glow': 'inset 0 0 10px 0 rgba(139, 92, 246, 0.2)',
+            },
+            animation: {
+              'fade-in-up': 'fade-in-up 0.6s ease-out forwards',
+            },
+            keyframes: {
+              'fade-in-up': {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+            }
+          }
+        }
+      }
+    </script>
+    <script type="importmap">
+  {
+    "imports": {
+      "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+      "react/": "https://aistudiocdn.com/react@^19.2.0/",
+      "react": "https://aistudiocdn.com/react@^19.2.0",
+      "@google/genai": "https://aistudiocdn.com/@google/genai@^1.27.0"
+    }
+  }
+  </script>
+</head>
+  <body class="bg-gray-900 animated-gradient">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
